@@ -6,12 +6,9 @@
 https://cdn.jsdelivr.net/gh/mauvaisair/squarespace-scripts@main/map-init.js
 */
 
-
-
 function getCustomPopupHTML() {
   return `
-  
-<div style="position: relative;">
+    <div style="position: relative;">
       <img src="https://images.squarespace-cdn.com/content/v1/65a936b90ca5da4a763ea868/1741911219892-41ASPV4H5EMLG61PX5OW/MAUVAISAIR+TATTOO+STUDIO+TATTOO+CHIBOUGAMAU+-+book+-+re%CC%81server.png" alt="Studio">
       <button class="custom-info-close" onclick="this.parentElement.parentElement.style.display='none'">&times;</button>
     </div>
@@ -24,49 +21,23 @@ function getCustomPopupHTML() {
   `;
 }
 
-function initMaps() {
-  const baseStyle = [
-    { "elementType": "geometry", "stylers": [{ "color": "#212121" }] },
-    { "elementType": "labels", "stylers": [{ "visibility": "off" }] },
-    { "elementType": "labels.icon", "stylers": [{ "visibility": "off" }] },
-    { "elementType": "labels.text.fill", "stylers": [{ "color": "#757575" }] },
-    { "elementType": "labels.text.stroke", "stylers": [{ "visibility": "off" }] },
-    { "featureType": "administrative", "elementType": "geometry", "stylers": [{ "color": "#757575" }] },
-    { "featureType": "administrative.country", "elementType": "labels.text.fill", "stylers": [{ "color": "#9e9e9e" }] },
-    { "featureType": "administrative.land_parcel", "stylers": [{ "visibility": "off" }] },
-    { "featureType": "administrative.locality", "elementType": "labels.text.fill", "stylers": [{ "color": "#ffffff" }, { "visibility": "on" }] },
-    { "featureType": "administrative.neighborhood", "stylers": [{ "visibility": "off" }] },
-    { "featureType": "landscape.man_made", "elementType": "geometry.fill", "stylers": [{ "color": "#121212" }, { "visibility": "on" }] },
-    { "featureType": "landscape.man_made", "elementType": "geometry.stroke", "stylers": [{ "color": "#7a7a7a" }, { "visibility": "on" }] },
-    { "featureType": "landscape.natural", "elementType": "geometry.fill", "stylers": [{ "color": "#858585" }] },
-    { "featureType": "landscape.natural.landcover", "stylers": [{ "color": "#000000" }] },
-    { "featureType": "poi", "elementType": "labels.text.fill", "stylers": [{ "color": "#757575" }] },
-    { "featureType": "poi.park", "elementType": "geometry", "stylers": [{ "color": "#181818" }] },
-    { "featureType": "poi.park", "elementType": "labels.text.fill", "stylers": [{ "color": "#616161" }] },
-    { "featureType": "poi.park", "elementType": "labels.text.stroke", "stylers": [{ "color": "#1b1b1b" }] },
-    { "featureType": "road", "stylers": [{ "color": "#b0b0b0" }] },
-    { "featureType": "road", "elementType": "geometry", "stylers": [{ "color": "#dedede" }, { "visibility": "simplified" }, { "weight": 1 }] },
-    { "featureType": "road", "elementType": "geometry.fill", "stylers": [{ "color": "#6b6b6b" }, { "visibility": "simplified" }] },
-    { "featureType": "road", "elementType": "labels.icon", "stylers": [{ "visibility": "off" }] },
-    { "featureType": "road.arterial", "elementType": "geometry", "stylers": [{ "color": "#373737" }] },
-    { "featureType": "road.arterial", "elementType": "geometry.fill", "stylers": [{ "color": "#6b6b6b" }] },
-    { "featureType": "road.highway", "elementType": "geometry", "stylers": [{ "color": "#f5f5f5" }] },
-    { "featureType": "road.highway", "elementType": "geometry.fill", "stylers": [{ "color": "#6b6b6b" }] },
-    { "featureType": "road.highway.controlled_access", "elementType": "geometry", "stylers": [{ "color": "#9c9c9c" }] },
-    { "featureType": "road.highway.controlled_access", "elementType": "geometry.fill", "stylers": [{ "color": "#6b6b6b" }] },
-    { "featureType": "transit", "elementType": "labels.text.fill", "stylers": [{ "color": "#757575" }] },
-    { "featureType": "water", "elementType": "geometry", "stylers": [{ "color": "#000000" }] },
-    { "featureType": "water", "elementType": "geometry.fill", "stylers": [{ "color": "#1c1c1c" }] },
-    { "featureType": "water", "elementType": "labels.text.fill", "stylers": [{ "color": "#3d3d3d" }] }
-  ]; 
-  const location = { lat: 49.91206, lng: -74.37973 };
-  const mapElements = document.querySelectorAll('.map-instance');
+async function loadMapStyle(styleName) {
+  const response = await fetch(`https://cdn.jsdelivr.net/gh/MAUVAISAIR/squarespace-script@TATTOO/${styleName}.min.json`);
+  return await response.json();
+}
 
-  mapElements.forEach((el) => {
+async function initMaps() {
+  const location = { lat: 49.91206, lng: -74.37973 };
+  const maps = document.querySelectorAll(".map-instance");
+
+  for (const el of maps) {
+    const styleName = el.dataset.style || "dark-map-style";
+    const style = await loadMapStyle(styleName);
+
     const map = new google.maps.Map(el, {
       center: location,
       zoom: 15,
-      styles: baseStyle,
+      styles: style,
       mapTypeId: 'roadmap',
       streetViewControl: false,
       zoomControl: false,
@@ -79,7 +50,7 @@ function initMaps() {
       map: map,
       title: "MAUVAISAIR TATTOO",
       icon: {
-        url: "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(`<svg width=\"34\" height=\"34\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 2C8.13 2 5 5.13 5 9C5 13.25 9.5 19.25 11.26 21.57C11.66 22.1 12.34 22.1 12.74 21.57C14.5 19.25 19 13.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z\" fill=\"white\"></path></svg>`),
+        url: "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(`<svg width="34" height="34" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9C5 13.25 9.5 19.25 11.26 21.57C11.66 22.1 12.34 22.1 12.74 21.57C14.5 19.25 19 13.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z" fill="white"></path></svg>`),
         scaledSize: new google.maps.Size(34, 34),
         anchor: new google.maps.Point(17, 34)
       }
@@ -113,7 +84,7 @@ function initMaps() {
       customOverlay.setMap(map);
       map.panTo(location);
     });
-  });
+  }
 }
 
 window.addEventListener('load', () => {
