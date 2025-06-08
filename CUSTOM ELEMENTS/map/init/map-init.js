@@ -1,10 +1,18 @@
 /*-*-*-*-*-*-*-*-*-*-*-*-*-* MAP INIT *-*-*-*-*-*-*-*-*-*-*-*-*-*/
 
-/*                     map.css     map.html                     */
+/* 
 
-/*
-https://cdn.jsdelivr.net/gh/mauvaisair/squarespace-scripts@main/map-init.js
+ *** RELATED FILES ***
+ 
+  map-init.css
+  dark-map-style.json
+
+ *** LINK ***
+
+  https://cdn.jsdelivr.net/gh/mauvaisair/squarespace-scripts@TATTOO/CUSTOM-ELEMENTS/map/init/map-init.min.json
+
 */
+
 
 function getCustomPopupHTML() {
   return `
@@ -22,7 +30,7 @@ function getCustomPopupHTML() {
 }
 
 async function loadMapStyle(styleName) {
-  const response = await fetch(`https://cdn.jsdelivr.net/gh/mauvaisair/squarespace-scripts@TATTOO/FOOTER/map/${styleName}.min.json`);
+  const response = await fetch(`https://cdn.jsdelivr.net/gh/mauvaisair/squarespace-scripts@TATTOO/FOOTER/map/styles/${styleName}.min.json`);
   return await response.json();
 }
 
