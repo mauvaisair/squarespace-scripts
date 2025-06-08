@@ -1,0 +1,14 @@
+/* Toggle Section Behavior */
+.footer-map-section {
+  transition: max-height 0.4s ease;
+  max-height: 0;
+  opacity: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.footer-map-section.visible {
+  max-height: 1000px;
+  opacity: 1;
+  pointer-events: auto;
+}
