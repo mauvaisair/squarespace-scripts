@@ -1,7 +1,7 @@
 
 
 
-<!----------------------- BOOK NOW BUTTON GROUP SCALE HOVER
+<!----------------------- BOOK NOW BUTTON GROUP SCALE HOVER -- disregard
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const triggerBlock = document.querySelector("#block-458ff246a36c3bbb4ae0");

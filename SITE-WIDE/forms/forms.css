@@ -1,0 +1,17 @@
+/* Make Squarespace form error messages subtle and inline */
+
+p.form-field-error {
+  background-color: transparent !important;
+  color: #cc0000 !important;
+  padding: 0 !important;
+  margin: 0.25em 0 0.5em 0 !important;
+  border: none !important;
+  font-size: 0.5em;
+  font-weight: normal;
+  box-shadow: none !important;
+  display: inline-block;
+}
+
+p.form-field-error svg {
+  display: none !important; /* Hide the red warning icon */
+}
