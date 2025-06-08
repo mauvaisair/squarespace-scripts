@@ -1,0 +1,35 @@
+
+
+
+
+
+
+/* Shared transition styles */
+.clickable-section .sqs-block,
+.clickable-section .section-background-overlay {
+  transition: opacity 0.4s ease;
+}
+
+/* Hover effect for desktop */
+@media screen and (min-width: 769px) {
+  .clickable-section:hover .sqs-block {
+    opacity: 0;
+  }
+
+  .clickable-section:hover .section-background-overlay {
+    opacity: 0 !important;
+    pointer-events: none;
+  }
+}
+
+/* Scroll effect for mobile */
+@media screen and (max-width: 768px) {
+  .clickable-section.scroll-reveal .sqs-block {
+    opacity: 0;
+  }
+
+  .clickable-section.scroll-reveal .section-background-overlay {
+    opacity: 0 !important;
+    pointer-events: none;
+  }
+}

@@ -1,0 +1,49 @@
+  .hover-scale-wrapper svg {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .hover-scale-wrapper svg path {
+    transition: transform 0.3s ease;
+    transform-origin: center;
+  }
+
+  .hover-scale-wrapper:hover svg path {
+    transform: scale(1.05);
+  }
+
+  .floating-svg-logo {
+    position: fixed;
+    top: 180px;
+    right: 40px;
+    width: 250px;
+    z-index: 9999;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    will-change: transform;
+  }
+
+  .floating-svg-logo svg path {
+    transition: transform 0.3s ease;
+    transform-origin: center;
+  }
+
+  .floating-svg-logo:hover svg path {
+    transform: scale(1.05);
+  }
+
+  .svg-white {
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 1)) drop-shadow(0 0 10px rgba(0, 0, 0, 1)) drop-shadow(0 0 15px rgba(0, 0, 0, 1)) drop-shadow(0 0 30px rgba(0, 0, 0, 1)) drop-shadow(0 0 45px rgba(0, 0, 0, 1));
+  }
+
+  .svg-black {
+    filter: drop-shadow(0 0 45px rgba(255, 255, 255, 1));
+  }
+
+  @media screen and (max-width: 768px) {
+    .floating-svg-logo {
+      top: auto;
+      bottom: 20px;
+      right: 20px;
+      width: 150px;
+    }
+  }
