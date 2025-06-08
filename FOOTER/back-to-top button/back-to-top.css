@@ -1,0 +1,37 @@
+/*-*-*-*-*-*-*-*-*-*-*-*-*-*-* BACK TO TOP BUTTON *-*-*-*-*-*-*-*-*-*-*-*-*-*-*/
+
+/*                     back-to-top.js    back-to-top.html                     */
+
+
+#back-to-top {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  /* Add these for consistency if not set elsewhere */
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 999;
+  cursor: pointer;
+}
+
+#back-to-top a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+#back-to-top a:hover svg path {
+  fill-opacity: 1;
+  transform: scale(1.05);
+  transition: fill-opacity 0.3s ease, transform 0.3s ease;
+}
+
+@media (max-width: 300px) {
+  #back-to-top {
+    bottom: 5px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+  }
+}

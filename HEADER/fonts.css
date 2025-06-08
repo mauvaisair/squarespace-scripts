@@ -1,0 +1,83 @@
+
+
+/*-*-*-*-*-*-*-*-*-*-*-*-*-*-* SET CUSTOM BOLD WEIGHT TO HEADINGS AND PARAGRAPHS *-*-*-*-*-*-*-*-*-*-*-*-*-*-*/
+
+
+/* ------------------------ HEADINGS --- */
+
+
+/* --- SET -------------------------- */
+
+/***************** REGULAR ***/
+@font-face {
+  font-family: 'GrenzeGotischCustom';
+  src: url('https://static1.squarespace.com/static/65a936b90ca5da4a763ea868/t/6838b93dda58014f42260a7c/1748547901938/grenze-gotisch-v18-latin-100.woff2') format('woff2');
+  font-weight: 100;
+  font-style: normal;
+}
+
+/***************** BOLD ***/
+@font-face {
+  font-family: 'GrenzeGotischCustom';
+  src: url('https://static1.squarespace.com/static/65a936b90ca5da4a763ea868/t/6838b93de3ff967e12b2b6a6/1748547901962/grenze-gotisch-v18-latin-300.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+/* --- APPLY ----------------------- */
+
+/***************** REGULAR ***/
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'GrenzeGotischCustom', serif;
+  font-weight: 100;
+}
+/***************** BOLD ***/
+h1 b, h2 b, h3 b, h4 b, h5 b, h6 b,
+h1 strong, h2 strong, h3 strong, h4 strong, h5 strong, h6 strong {
+  font-weight: 300 !important;
+}
+
+
+
+
+
+
+/* ----------------------- PARAGRAPHS --- */
+
+
+/* --- SET -------------------------- */
+
+/***************** REGULAR ***/
+@font-face {
+  font-family: 'RobotoMonoCustom';
+  src: url('https://static1.squarespace.com/static/65a936b90ca5da4a763ea868/t/6838baaebadf646f29a0b533/1748548270728/roboto-mono-v30-latin-200.woff2') format('woff2');
+  font-weight: 200;
+  font-style: normal;
+}
+
+/***************** BOLD ***/
+@font-face {
+  font-family: 'RobotoMonoCustom';
+  src: url('https://static1.squarespace.com/static/65a936b90ca5da4a763ea868/t/6838baae24950c312804500d/1748548270765/roboto-mono-v30-latin-300.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+/* --- APPLY ----------------------- */
+
+/***************** REGULAR ***/
+body,
+.sqs-block-content p {
+  font-family: 'RobotoMonoCustom', monospace;
+  font-weight: 200;
+}
+
+/***************** BOLD ***/
+.sqs-block-content b,
+.sqs-block-content strong {
+  font-weight: 400 !important;
+}
+
+

@@ -1,0 +1,63 @@
+a[data-lang] {
+  display: none;
+}
+
+.lang-en a[data-lang="en"],
+.lang-fr a[data-lang="fr"] {
+  display: inline-block;
+}
+
+/* === LANGUAGE SWITCHER BASE === */
+.language-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #999999;
+  text-decoration: none;
+  white-space: nowrap;
+  font-size: 0.875rem;
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+
+.language-switcher:hover {
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.language-switcher svg.globe-icon {
+  width: 1em;
+  height: 1em;
+  stroke: currentColor;
+  display: inline-block;
+}
+
+/* === DESKTOP HEADER POSITIONING === */
+.lang-en .header-actions--right .language-switcher,
+.lang-fr .header-actions--right .language-switcher {
+  padding-left: 2rem;
+  padding-right: 1.2rem;
+}
+
+/* === MOBILE MENU SWITCHER === */
+.header-menu-nav .language-switcher {
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.75rem 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.header-menu-nav .language-switcher .globe-icon {
+  width: 0.9em;
+  height: 0.9em;
+}
+
+@media (max-width: 768px) {
+  .header-menu-nav .language-switcher {
+    border-top: 1px solid #444;
+    margin-top: 0.5rem;
+    padding-top: 1rem;
+  }
+}

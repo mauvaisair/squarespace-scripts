@@ -1,0 +1,12 @@
+
+@media only screen and (max-width: 640px) {
+  #block-19a20a695a12106e34b0,
+  #block-386b775ceb5bb349f053,
+  #block-833a16093aea0aa19228,
+  #block-085bda79849978992570,
+  #block-9d4a6a1d79cc87803c59,
+  #block-yui_3_17_2_1_1747934515181_43986
+  {
+    display: none !important;
+  }
+}
