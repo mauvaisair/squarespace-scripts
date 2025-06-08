@@ -1,0 +1,13 @@
+  .hover-scale-wrapper svg {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .hover-scale-wrapper svg path {
+    transition: transform 0.3s ease;
+    transform-origin: center;
+  }
+
+  .hover-scale-wrapper:hover svg path {
+    transform: scale(1.05);
+  }
