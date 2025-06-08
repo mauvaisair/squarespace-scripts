@@ -22,7 +22,7 @@ function getCustomPopupHTML() {
 }
 
 async function loadMapStyle(styleName) {
-  const response = await fetch(`https://cdn.jsdelivr.net/gh/MAUVAISAIR/squarespace-script@TATTOO/${styleName}.min.json`);
+  const response = await fetch(`https://cdn.jsdelivr.net/gh/mauvaisair/squarespace-scripts@TATTOO/FOOTER/map/${styleName}.min.json`);
   return await response.json();
 }
 
